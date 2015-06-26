@@ -37,18 +37,6 @@ class SineGen:
         self.s0 = self.s0 - a * self.s1
         self.s1 = self.s1 + a * self.s0
         return self.s1
-"""   
-class Delay:
-    buffer = []
-    
-    def __init(self):
-        for (j in xrange(20000)):
-            buffer.append(0)
-        
-    def process(a):
-        
-        buffer.append(a)
-"""
 
 sine = SineGen()
 sine4 = SineGen()
@@ -63,9 +51,13 @@ fall = False
 risespeed = int(0.005 * fs)
 fallspeed = int(0.2 * fs)
 while (True):
+    """ Frequency vibrato """
     note = notes[note_ptr] * 0.25 + (5 * lfo.play(10))
+    
+    """ FM Syntesis """
     freq = note * ((sine2.play(note * 2) + 1.1) * 1.4) * ((sine2.play(note * 3) + 1) * 1.5 + (sine4.play(note * 5) * 1.3))
     a = sine.play(freq)
+
     a = a* 2
     play_sample(a*env)
     i = i+1
@@ -89,16 +81,8 @@ while (True):
             note_ptr = random.randint(0,12)
         
             print str(note) + " Hz"
-        
-    
-    
+
     if (note_ptr == len(seq)): note_ptr = 0
-    
-
-
-# play the C major scale
-
-
 
 
 stream.close()
