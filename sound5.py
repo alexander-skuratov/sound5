@@ -187,19 +187,19 @@ class Note(Core):
     """ 
         
     def filter(self, a, fc, res):
-        f = fc * 1.16;
-        fb = res * (1.0 - 0.15 * f * f);
-        a -= self.f_output[3] * fb;
-        a *= 0.35013 * (f*f)*(f*f);
-        self.f_output[0] = a + 0.3 * self.f_input[0] + (1 - f) * self.f_output[0];
-        self.f_input[0]  = a;
-        self.f_output[1] = self.f_output[0] + 0.3 * self.f_input[1] + (1 - f) * self.f_output[1];
-        self.f_input[1]  = self.f_output[0];
-        self.f_output[2] = self.f_output[1] + 0.3 * self.f_input[2] + (1 - f) * self.f_output[2];
-        self.f_input[2]  = self.f_input[1];
-        self.f_output[3] = self.f_output[2] + 0.3 * self.f_input[3] + (1 - f) * self.f_output[3];
-        self.f_input[3]  = self.f_output[2];
-        return self.f_output[3];
+        f = fc * 1.16
+        fb = res * (1.0 - 0.15 * f * f)
+        a -= self.f_output[3] * fb
+        a *= 0.35013 * (f*f)*(f*f)
+        self.f_output[0] = a + 0.3 * self.f_input[0] + (1 - f) * self.f_output[0]
+        self.f_input[0]  = a
+        self.f_output[1] = self.f_output[0] + 0.3 * self.f_input[1] + (1 - f) * self.f_output[1]
+        self.f_input[1]  = self.f_output[0]
+        self.f_output[2] = self.f_output[1] + 0.3 * self.f_input[2] + (1 - f) * self.f_output[2]
+        self.f_input[2]  = self.f_input[1]
+        self.f_output[3] = self.f_output[2] + 0.3 * self.f_input[3] + (1 - f) * self.f_output[3]
+        self.f_input[3]  = self.f_output[2]
+        return self.f_output[3]
    
 
 core = Core()
