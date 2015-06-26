@@ -1,11 +1,12 @@
 """
 Caution:
 
-1) Low performance
+1) Low performance. C/C++/Java/Obj-C is better for the real-time... Or try NumPy.
 2) Envelopes are not stable and linear (better use exp. interpolation or any other - it's smoother)
 3) Filter are not so stable
+4) Mind the lack of precision in floating-point operations. Use normalization/denormalization for the real-world applications
 
-So if you tweak the parameters you can get some unexceptable results (that may be very loud)
+So if you tweak the parameters in this script you can get some harmful results (that may be very loud)
 """
 
 import math
