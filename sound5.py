@@ -2,7 +2,7 @@
 Caution:
 
 1) Low performance
-2) Envelopes are not stable and linear
+2) Envelopes are not stable and linear (better use exp. interpolation or any other - it's smoother)
 3) Filter are not so stable
 
 So if you tweak the parameters you can get some unexceptable results (that may be very loud)
